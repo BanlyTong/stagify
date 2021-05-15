@@ -23,7 +23,6 @@ const isValidId = (id) => ObjectId.isValid(id) && String(new ObjectId(id)) === i
 
 module.exports = {
   lean,
-  response,
   projectize,
   isValidObject,
   isValidId,

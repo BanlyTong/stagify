@@ -1,6 +1,6 @@
 const { Types } = require('mongoose')
 const qs = require('qs')
-const { isValidId } = require('.')
+const { isValidId } = require('./')
 
 const parseValue = (v) => {
   if (v === 'true') return true
