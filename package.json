@@ -1,0 +1,23 @@
+{
+  "name": "stagify",
+  "version": "1.0.0",
+  "description": "mongoose aggregate pipeline parser",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mongooose",
+    "express",
+    "fastify",
+    "aggregate",
+    "pipeline",
+    "parser"
+  ],
+  "author": "Banly TONG",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^5.12.9",
+    "qs": "^6.10.1"
+  }
+}
