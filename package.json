@@ -2,12 +2,17 @@
   "name": "stagify",
   "version": "1.0.0",
   "description": "mongoose aggregate pipeline parser",
-  "main": "index.js",
+  "main": "lib/index.js",
+   "types": "lib/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build" : "tsc"
+    "test": "jest",
+    "build": "tsc",
+    "prepublishOnly" : "npm test",
+    "prepare" : "npm run build"
   },
-  "files": ["lib/**/*"],
+  "files": [
+    "lib/**/*"
+  ],
   "keywords": [
     "mongooose",
     "express",
@@ -23,6 +28,10 @@
     "qs": "^6.10.1"
   },
   "devDependencies": {
+    "@types/jest": "^29.2.0",
+    "jest": "^29.2.0",
+    "ts-jest": "^29.0.3",
+    "ts-node": "^10.9.1",
     "typescript": "^4.8.4"
   },
   "repository": {

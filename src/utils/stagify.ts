@@ -1,10 +1,11 @@
-const querify = require('./querify');
-const {
+import querify from './querify';
+
+import {
   projectize,
   isValidObject
-} = require('.');
+} from './index';
 
-module.exports = (query) => {
+export default (query: any) => {
     const {
       filters,
       select,
@@ -16,7 +17,7 @@ module.exports = (query) => {
       sort
     } = options;
 
-    const stages = [{
+    const stages: any = [{
       $match: filters
     }];
 
