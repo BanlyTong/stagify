@@ -1,15 +1,15 @@
-import querify from "../querify";
+import querify from '../querify';
 
-test("utils/querify", () => {
+test('utils/querify', () => {
   // arrage
   const input = {
-    name: "sambath",
+    name: 'sambath',
     sort: {
       createdAt: -1,
     },
   };
   const expectedResult = {
-    filters: { name: "sambath" },
+    filters: { name: 'sambath' },
     select: {},
     options: { skip: 0, limit: 25, sort: { createdAt: -1 } },
   };

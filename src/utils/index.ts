@@ -1,9 +1,8 @@
-const { ObjectId } = require("mongoose").Types;
+const { ObjectId } = require('mongoose').Types;
 
 export const lean = (data: any) => JSON.parse(JSON.stringify(data));
 
-export const isValidObject = (obj: any) =>
-  obj !== null && typeof obj === "object" && Object.keys(obj).length > 0;
+export const isValidObject = (obj: any) => obj !== null && typeof obj === 'object' && Object.keys(obj).length > 0;
 
 export const projectize = (select: any) => {
   if (isValidObject(select)) {
@@ -18,5 +17,4 @@ export const projectize = (select: any) => {
   }
 };
 
-export const isValidId = (id: string) =>
-  ObjectId.isValid(id) && String(new ObjectId(id)) === id;
+export const isValidId = (id: string) => ObjectId.isValid(id) && String(new ObjectId(id)) === id;

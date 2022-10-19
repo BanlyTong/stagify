@@ -3,6 +3,7 @@
 Hey, there! Here is an open-source library for converting endpoint query string to MongoDB query working together with `mongoose` and `express.js`.
 
 ## stagify
+
 ```js
 // input
 {
@@ -12,17 +13,18 @@ Hey, there! Here is an open-source library for converting endpoint query string 
     }
 }
 // output
-[ 
-    { 
-        '$match': { name: 'sambath' } 
+[
+    {
+        '$match': { name: 'sambath' }
     },
-    { 
-        '$sort': { createdAt: -1 } 
-    } 
+    {
+        '$sort': { createdAt: -1 }
+    }
 ]
 ```
 
 ## querify
+
 ```js
 // input
 {
@@ -35,10 +37,10 @@ Hey, there! Here is an open-source library for converting endpoint query string 
 {
     filters: { name: 'sambath' },
     select: {},
-    options: { 
-        skip: 0, 
-        limit: 25, 
-        sort: { createdAt: -1 } 
+    options: {
+        skip: 0,
+        limit: 25,
+        sort: { createdAt: -1 }
     }
 }
 ```
