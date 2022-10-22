@@ -1,23 +1,20 @@
 import querify from '../querify';
 
-test('utils/querify', () => {
-  // arrage
-  const input = {
-    name: 'sambath',
-    sort: {
-      createdAt: -1,
-    },
-  };
-  const expectedResult = {
-    filters: { name: 'sambath' },
-    select: {},
-    options: { skip: 0, limit: 25, sort: { createdAt: -1 } },
-  };
+describe('utils/querify', () => {
+  it('should return { name:"sambath, age: 18 } when "name=sambath&age=18" passed as parameter', () => {
+    // arrage
+    const input = 'name=sambath&age=18';
+    const expectedResult = {
+      filters: { name: { $eq: 'sambath' }, age: { $eq: 18 } },
+      select: {},
+      options: { skip: 0, limit: "25", sort: { } },
+    };
 
-  // act
-  const output = querify(input);
+    // act
+    const output = querify(input);
 
-  console.log(output);
-  // assert
-  expect(output).toEqual(expectedResult);
+    console.log(output);
+    // assert
+    expect(output).toEqual(expectedResult);
+  });
 });

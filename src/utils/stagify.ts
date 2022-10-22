@@ -2,11 +2,21 @@ import querify from './querify';
 
 import { projectize, isValidObject } from './index';
 
-export default (query: any) => {
+interface ISort {
+  [key: string]: number;
+}
+export interface IStage {
+  $match?: object;
+  $project?: object;
+  $sort?: ISort;
+  $skip?: number;
+  $limit?: number;
+}
+export default (query: string): IStage[] => {
   const { filters, select, options } = querify(query);
   const { skip, limit, sort } = options;
 
-  const stages: any = [
+  const stages: IStage[] = [
     {
       $match: filters,
     },
@@ -15,23 +25,24 @@ export default (query: any) => {
   const project = projectize(select);
   if (project) stages.push(project);
 
-  if (isValidObject(sort)) {
+  if (isValidObject(sort || {})) {
     for (const key in sort) {
-      sort[key] = parseInt(sort[key], 10);
+      sort[key] = typeof sort[key] === 'string' ? parseInt(sort[key] as unknown as string): sort[key];
     }
     stages.push({
       $sort: sort,
     });
   }
 
-  if (query.limit || query.page) {
+  if (options.limit || filters.page) {
     stages.push({
-      $skip: skip,
+      $skip: typeof skip === 'string' ? parseInt(skip) : skip,
     });
 
     stages.push({
-      $limit: limit,
+      $limit: typeof limit === 'string' ? parseInt(limit) : limit,
     });
   }
+
   return stages;
 };
