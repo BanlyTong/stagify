@@ -6,10 +6,8 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest",
-    "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint \"src/**/*.ts\"",
-    "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",

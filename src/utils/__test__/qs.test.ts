@@ -10,7 +10,6 @@ describe('utils/querify', () => {
     // act
     const output = qs.parse(input);
 
-    console.log(output);
     // assert
     expect(output).toEqual(expectedResult);
   });
@@ -26,7 +25,6 @@ describe('utils/querify', () => {
     // act
     const output = qs.parse(input);
 
-    console.log(output);
     // assert
     expect(output).toEqual(expectedResult);
   });
@@ -41,7 +39,6 @@ describe('utils/querify', () => {
     // act
     const output = qs.parse(input);
 
-    console.log(output);
     // assert
     expect(output).toEqual(expectedResult);
   });
@@ -59,7 +56,6 @@ describe('utils/querify', () => {
     // act
     const output = qs.parse(input);
 
-    console.log(output);
     // assert
     expect(output).toEqual(expectedResult);
   });

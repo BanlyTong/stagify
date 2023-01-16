@@ -9,6 +9,7 @@ export interface IFilter {
 export interface ICondition {
     [key: string]: any
 }
+
 export const mapFilters = (filter: IFilter): ICondition => {
   const conditions: ICondition = {};
   for (const key in filter) {
@@ -20,7 +21,6 @@ export const mapFilters = (filter: IFilter): ICondition => {
       const items = Array(filter[key]).map((v: any) => parseValue(v as string) as string)
       conditions[key] = { $in: items };
     } else {
-      console.log({ condition: filter[key] })
       conditions[key] = getNumberFilter(filter[key] as string);
     }
   }
