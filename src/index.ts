@@ -1,7 +1,2 @@
-import stagify from './utils/stagify';
-import querify from './utils/querify';
-
-export default {
-  querify,
-  stagify,
-};
+export * from './utils/stagify';
+export * from './utils/querify';
