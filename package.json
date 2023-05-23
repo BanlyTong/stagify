@@ -1,6 +1,6 @@
 {
   "name": "stagify",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "mongoose aggregate pipeline parser",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
