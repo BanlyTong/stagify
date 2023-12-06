@@ -13,7 +13,6 @@ describe.only('utils/stagify', () => {
 
     // act
     const output: IStage[] = stagify(input);
-    console.log(output);
 
     // assert
     expect(output).toEqual(expectedResult);

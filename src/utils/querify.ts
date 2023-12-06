@@ -26,10 +26,8 @@ export interface IQuerify {
 }
 
 export default (query: string): IQuerify => {
-  const { select, page, limit, sort, ...params }:any = qs.parse(query);
+  const { select, page, limit, sort, ...params }: any = qs.parse(query);
   
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  console.log({ params })
   const filters: ICondition = mapFilters(params as IFilter);
   const options = mapOptions(page as string, limit as string, sort as string);
   const project: IProject = {};

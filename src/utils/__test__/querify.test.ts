@@ -13,7 +13,6 @@ describe('utils/querify', () => {
     // act
     const output = querify(input);
 
-    console.log(output);
     // assert
     expect(output).toEqual(expectedResult);
   });
