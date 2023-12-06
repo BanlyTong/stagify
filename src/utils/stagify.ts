@@ -28,7 +28,7 @@ export function stagify(query: string | IQuery): IStage[] {
 
   if (sort && isValidObject(sort)) {
     for (const key in sort) {
-      sort[key] = typeof sort[key] === 'string' ? parseInt(sort[key] as unknown as string): sort[key];
+      sort[key] = typeof sort[key] === 'string' ? parseInt(sort[key] as unknown as string) : sort[key];
     }
     stages.push({
       $sort: sort,
@@ -46,6 +46,6 @@ export function stagify(query: string | IQuery): IStage[] {
   }
 
   return stages;
-};
+}
 
 export default stagify;

@@ -3,11 +3,11 @@ import { getRangeFilter } from './get_range_filter';
 import { parseValue } from './parse_value';
 
 export interface IFilter {
-    [key: string]: string | string[]
+  [key: string]: string | string[];
 }
 
 export interface ICondition {
-    [key: string]: any
+  [key: string]: any;
 }
 
 export const mapFilters = (filter: IFilter): ICondition => {
@@ -18,7 +18,7 @@ export const mapFilters = (filter: IFilter): ICondition => {
         conditions[key] = getRangeFilter(filter[key] as string[]);
         if (Object.keys(conditions[key] as object).length) continue;
       }
-      const items = Array(filter[key]).map((v: any) => parseValue(v as string) as string)
+      const items = Array(filter[key]).map((v: any) => parseValue(v as string) as string);
       conditions[key] = { $in: items };
     } else {
       conditions[key] = getNumberFilter(filter[key] as string);
