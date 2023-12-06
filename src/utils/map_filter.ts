@@ -9,6 +9,7 @@ export interface IFilter {
 export interface ICondition {
     [key: string]: any
 }
+
 export const mapFilters = (filter: IFilter): ICondition => {
   const conditions: ICondition = {};
   for (const key in filter) {

@@ -1,4 +1,4 @@
-import querify from './querify';
+import querify, { IQuery } from './querify';
 
 import { projectize, isValidObject } from './index';
 
@@ -12,7 +12,8 @@ export interface IStage {
   $skip?: number;
   $limit?: number;
 }
-export default (query: string): IStage[] => {
+
+export function stagify(query: string | IQuery): IStage[] {
   const { filters, select, options } = querify(query);
   const { skip, limit, sort } = options;
 
@@ -25,7 +26,7 @@ export default (query: string): IStage[] => {
   const project = projectize(select);
   if (project) stages.push(project);
 
-  if (isValidObject(sort || {})) {
+  if (sort && isValidObject(sort)) {
     for (const key in sort) {
       sort[key] = typeof sort[key] === 'string' ? parseInt(sort[key] as unknown as string): sort[key];
     }
@@ -46,3 +47,5 @@ export default (query: string): IStage[] => {
 
   return stages;
 };
+
+export default stagify;

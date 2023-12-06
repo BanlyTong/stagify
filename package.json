@@ -1,6 +1,6 @@
 {
   "name": "stagify",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "mongoose aggregate pipeline parser",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -9,7 +9,6 @@
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint \"src/**/*.ts\"",
-    "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
@@ -30,7 +29,7 @@
   "author": "Banly TONG",
   "license": "MIT",
   "dependencies": {
-    "mongoose": "^5.12.9",
+    "mongoose": "^7.2.0",
     "qs": "^6.10.1"
   },
   "devDependencies": {

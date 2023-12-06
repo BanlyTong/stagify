@@ -5,7 +5,24 @@ describe('utils/parse_value', () => {
         const input = "sambath";
         const expectedResult = "sambath"
 
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        const output = parseValue(input);
+
+        expect(output).toEqual(expectedResult)
+    })
+
+    it('should return true when "true" passed as parameter', () => {
+        const input = "true";
+        const expectedResult = true;
+
+        const output = parseValue(input);
+
+        expect(output).toEqual(expectedResult)
+    })
+
+    it('should return false when "false" passed as parameter', () => {
+        const input = "false";
+        const expectedResult = false;
+
         const output = parseValue(input);
 
         expect(output).toEqual(expectedResult)
