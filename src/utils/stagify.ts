@@ -26,7 +26,7 @@ export function stagify(query: string | IQuery): IStage[] {
   const project = projectize(select);
   if (project) stages.push(project);
 
-  if (isValidObject(sort || {})) {
+  if (sort && isValidObject(sort)) {
     for (const key in sort) {
       sort[key] = typeof sort[key] === 'string' ? parseInt(sort[key] as unknown as string): sort[key];
     }

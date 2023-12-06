@@ -31,12 +31,12 @@ describe.only('utils/stagify', () => {
     expect(output).toEqual(expected);
   });
 
-  it('should return correct sort when pass "sort[age]=1"', () => {
-    const input = "sort[age]=1";
+  it('should return correct sort when pass "sort[age]=1&sort[name]=-1"', () => {
+    const input = "sort[age]=1&sort[name]=-1";
     const expected = [
       { $match: {}},
       {
-        $sort: { age: 1 }
+        $sort: { age: 1, name: -1 }
       },
       { $skip: 0 },
       { $limit: 25 },
@@ -52,6 +52,20 @@ describe.only('utils/stagify', () => {
     const expected = [
       { $match: {}},
       { $skip: 20 },
+      { $limit: 20 },
+    ];
+
+    const output = stagify(input);
+
+    expect(output).toEqual(expected);
+  })
+
+  it('should return correct skip select when pass "select[name]=1&limit=20"', () => {
+    const input = "select[name]=1&limit=20";
+    const expected = [
+      { $match: {}},
+      { $project: { name: 1 } },
+      { $skip: 0 },
       { $limit: 20 },
     ];
 

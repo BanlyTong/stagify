@@ -12,7 +12,7 @@ interface ISelect {
 export const projectize = (select: ISelect) => {
   if (isValidObject(select)) {
     for (const key in select) {
-      select[key] = typeof select[key] === 'string' ? parseInt(select[key] as string, 10) : 0;
+      select[key] = typeof select[key] === 'string' ? parseInt(select[key] as string, 10) : select[key];
     }
     return {
       $project: select,
